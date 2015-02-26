@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link href="css/test-page-css.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="fm/jquery/jquery.js"></script>
+<script type="text/javascript" src="fm/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="fm/jquerymx/jquery.lang.js"></script>
+<script type="text/javascript" src="fm/jquerymx/jquery.class.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>APP TEMPLATE</title>
+</head>
+
+<body>
+
+<h1>App Template</h1>
+
+<p>
+
+App Template is the basis for all app mode toggling behaviors for the MindTap system.  Notes are made within the code where there is a sensitive format issue in the DOM.  
+
+</p>
+<p><strong>The expected behaviors of the template are as follows:</strong><br>
+(1) To enter and exit the application area granting application mode behaviors (screen reader allows user to use arrow keys) within the application and virtual cursor mode restored upon leaving the application.<br>
+(2) To  toggle the app mode behaviors whether initiated by arrow keys or tab/shift-tab key use.</p>
+<p><strong>The reasons for this model are as follows (although not an exhaustive list):</strong><br>
+  (3) To insure that a developer would be able to consistently detect if the user was trying to leave a designated area and perform appropriate application behaviors based on the situation.  An example of this would be the closing of the LPN automatically upon leaving the area to normalize behavior with normal user mouse-driven behaviors.<br>
+  (4) To eliminate the possibility of more bugs via #3 for QA groups.<br>
+  (5) To resolve focus management issues when the DOM order does not reflect the expected focus management behaviors or moves to an area that would otherwise  cause navigation difficulties for the user.
+</p>
+<p>The current version should work on the following browser/screen reader combinations:</p>
+<p>JAWS 10, FireFox<br>
+JAWS 11, IE 8 and FireFox<br>
+JAWS 12, IE 8 and FireFox</p>
+<p>Note: The IE 8 solution is a button that toggles the behavior changes that would differ from the FireFox browser.<br>
+  The &quot;Exit Fix&quot; elements seen here are only required for JAWS 10.  All other scenarios do not require this solution.
+</p>
+<h2>Begin Test</h2>
+
+<div id="ie8-solution" tabindex="0" role="button" class="true button">IE 8 Solution</div>
+<div id="jaws10-fix" tabindex="0" role="button" class="true button">JAWS 10 Solution (no IE 8 Soution either)</div>
+
+
+
+<div>Note: the fact that you can read this text means that the screen reader is in Virtual Cursor Mode.</div>
+
+<div id="exit-fix" tabindex="0">Exit Fix</div> <!-- NOTE: There are cases where the JAWS reader will fail to leave APP MODE, requiring one more step.  By adding a key event (any key will do) to the Exit DIV that can transfer it to the Exit Fix, this problem is effectively eliminated.  This is very necessary to protect against APP MODE failures! NOTE #2: This is also what makes the JAWS 10 system able to perform the same behaviors as 11, 12.  WIthout it, the pseudo app mode will not work. -->
+
+<div id="exit-div" tabindex="0" class="exit-fix targetid-exit-fix" role="button">Exit DIV</div>
+
+<div id="enter-button" tabindex="0" class="earthtone button">Enter BUTTON</div>
+
+<div id="continue-warning">Continuing beyond this point will automatically move you into the application.</div>
+
+<input id="enter-catch" type="text" value="catch 1 - ENTER APP" class="toggle-mode appmode-act targetid-app-entrance"><br>
+
+<input id="exit-catch" type="text" value="catch 2 - EXIT APP" class="toggle-mode appmode-deact targetid-exit-div" ariaparent="app-1"><br>
+
+<!-- <div id="end-of-app-warning">Continuing beyond this point will cause the reader to exit ABOVE the Application.</div> -->
+
+<div>
+  <div tabindex="-1">Flag 1</div>
+  <div id="app-entrance" tabindex="0" class="light" ariaparent="app-1" role="button">Application</div>
+  <div tabindex="-1">Flag 2</div>
+  <div id="app-button-1" tabindex="0" class="mellowyellow" ariaparent="app-1" role="button">App BUTTON - 1</div>
+  <div tabindex="-1">Flag 3</div>  
+  <div id="app-button-2" tabindex="0" class="oceanblue" ariaparent="app-1" role="button">App BUTTON - 2</div>
+  <div tabindex="-1">Flag 4</div>  
+  <div id="app-button-3" tabindex="0" class="brickred" ariaparent="app-1" role="button">App BUTTON - 3</div>
+  <div tabindex="-1">Flag 5</div>  
+  <div id="app-button-4" tabindex="0" class="forestgreen" ariaparent="app-1" role="button">App BUTTON - 4</div>
+  <div tabindex="-1">Flag 6</div>
+</div>
+
+<!-- <div id="end-of-app-warning">Continuing beyond this point will cause the reader to exit BELOW the Application.</div> -->
+
+<input id="exit-below-catch" type="text" value="catch 3 - EXIT BELOW APP" class="toggle-mode appmode-deact targetid-exit-below-div"><br>
+
+<input id="enter-below-catch" type="text" value="catch 4 - ENTER BELOW APP" class="toggle-mode appmode-act targetid-app-entrance"><br>
+
+<div id="continue-below-warning">Continuing UP beyond this point will automatically move you up into the application.</div>
+
+<div id="enter-below-button" tabindex="0" class="earthtone button">Enter Below BUTTON</div>
+
+<div id="exit-below-div" tabindex="0" class="exit-fix targetid-exit-below-fix" role="button">Exit Below DIV</div>
+
+<div id="exit-below-fix" tabindex="0">Exit Below Fix</div> <!-- NOTE: There are cases where the JAWS reader will fail to leave APP MODE, requiring one more step.  By adding a key event (any key will do) to the Exit DIV that can transfer it to the Exit Fix, this problem is effectively eliminated.  This is very necessary to protect against APP MODE failures! -->
+
+<div>Note: the fact that you can read this text means that the screen reader is in Virtual Cursor Mode.</div>
+
+<span>Toggle iframe below.  Note if it remains red at any point (focus bug)</span><br>
+<!--<iframe id="toggle-iframe" tabindex="0" width="25" height="25"></iframe>-->
+
+<h2>End Test</h2>
+
+<script type="text/javascript" src="fm/app-template-behaviors.js"></script> 
+
+<script type="text/javascript">
+
+/* Applu JAWS 10 fix */
+$('#jaws10-fix').click(function()
+{
+	$(this).toggleClass('true');
+	$('#exit-fix, #exit-below-fix').toggleClass('display-none');
+	
+});
+
+$('#exit-div').bind('keydown', function()
+{
+	if(('#exit-fix').hasClass('display-none') == false)
+	{
+		$('#exit-fix').focus();
+	}
+});
+
+$('#exit-below-div').bind('keydown', function()
+{
+	if(('#exit-fix').hasClass('display-none') == false)
+	{
+		$('#exit-below-fix').focus();
+	}
+});
+
+$('#enter-button').click(function()
+{
+	$('body').attr('role', 'application');
+	$('#toggle-iframe').focus();
+	$('#app-entrance').focus();
+	
+});
+
+$('#enter-below-button').click(function()
+{
+	$('body').attr('role', 'application');
+	$('#toggle-iframe').focus();
+	$('#app-entrance').focus();
+	
+});
+
+
+
+$('#app-entrance').bind('keydown', 'up', function()
+{
+	$('body').removeAttr('role');
+	$('#toggle-iframe').focus();
+	$('#exit-div').focus();
+});
+
+$('#app-button-4').bind('keydown', 'down', function()
+{
+	$('body').removeAttr('role');
+	$('#exit-below-catch').focus();
+	$('#toggle-iframe').focus();
+	$('#exit-below-div').focus();
+});
+
+/* Assign bindings to app DIVs (ariaparent values) */
+var appSet = $('[ariaparent="app-1"]');
+assignFocusManagement(appSet, 'keydown', 'down', 'descending');
+assignFocusManagement(appSet, 'keydown', 'up', 'ascending');
+assignFocusManagement(appSet, 'keydown', 'right', 'descending');
+assignFocusManagement(appSet, 'keydown', 'left', 'ascending');
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	margin:0;	
+}
+
+.content-body {
+	clear:both;
+	width:1024px;
+	height:auto;	
+	border:#C2C1BD 3px dashed;
+	
+	margin:10px auto;
+	padding:20px;
+}
+
+.content-full-height {
+	height:100%;
+	width:100%;
+	display:inline-block;
+	
+}
+
+
+.display-none {
+	display:none;	
+}
+
+.button {
+	display:block;
+	background-color:#CCC;
+	border:gray 2px solid; 
+	min-width:50px;
+	min-height:15px;
+	width:75px;
+	padding:4px;
+	z-index:1000;
+	margin:5px;
+}
+
+
+.light {
+	border:#D7D5CD solid;
+	background-color:#F5F5F5;
+	
+	
+}
+
+
+
+.medium-light {
+	border:#C2C1BD solid;
+	background-color:#D5D5D5;
+	
+}
+
+
+
+.medium {
+	border:#9E9B8C solid;
+	background-color:#B2AE9A;
+	
+	
+}
+
+
+
+.medium-dark {
+	border:#626262 solid;
+	background-color:#8A887E;
+	color:white;
+}
+
+
+.dark {
+	border:#373022 solid;
+	background-color:#656460;
+	color:white;
+	
+}
+
+.brickred {
+	border:#600700 solid;
+	background-color:#C5AB84;
+}
+
+.earthtone {
+	border:#943E0F solid;
+	background-color:#AF8152;
+}
+
+.mellowyellow {
+	border:#BDA912 solid;
+	background-color:#D2C863;	
+}
+
+.forestgreen {
+	border:#35582D solid;
+	background-color:#9BAE72;	
+}
+
+.oceanblue {
+	border:#28726E solid;
+	background-color:#9CB29E;	
+}
+
+.focus {
+	border-color:red;
+	
+}
+
+.region {
+	position:relative;
+	display:block;
+	float:left;	
+	padding:5px;
+	
+}
+
+.saved-state {
+	border:red dotted 3px;
+}
+
+.focus-title {
+	border:white solid 3px;
+	background-color:black;
+	color:white;
+	position:absolute;
+	margin-top:-32px;
+	float:clear;
+	display:inline-block;
+	padding:5px;
+}
+
+.popup-title {
+	
+}
+
+
+.hide, .invisible {
+	margin-left:-2000px;
+	position:absolute;
+}
+
+
+iframe.dock-app-iframe {
+	display:block;
+	float:right;
+	height:500px;
+	width:500px;
+	
+}
+
+iframe.hide {
+	display:none;
+	float:left;
+	width:0;
+	height:0;
+	margin:0;
+}
+
+
+
+iframe.notebook {
+	border:4px #943E0F solid;
+	background-color:#AF8152;	
+}
+
+iframe.progress {
+	border:4px #600700 solid;
+	background-color:#C5AB84;	
+}
+
+iframe.fullbook {
+	border:4px #35582D solid;
+	background-color:#9BAE72;	
+}
+
+iframe.flashcards {
+	border:4px #BDA912 solid;
+	background-color:#D2C863;	
+}
+
+.clear-break {
+	clear:both;
+	
+	
+}
+
+iframe.focus {
+	border:4px red solid;	
+	
+}
+
+.true {
+	border: green 3px solid;	
+}
