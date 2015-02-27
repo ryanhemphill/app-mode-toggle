@@ -50,7 +50,7 @@ JAWS 12, IE 8 and FireFox</p>
 
 <div id="exit-div" tabindex="0" class="exit-fix targetid-exit-fix" role="button">Exit DIV</div>
 
-<div id="enter-button" tabindex="0" class="earthtone button">Enter BUTTON</div>
+<div id="enter-button" tabindex="0" class="earthtone button appmode-act">Enter BUTTON</div>
 
 <div id="continue-warning">Continuing beyond this point will automatically move you into the application.</div>
 
@@ -123,13 +123,30 @@ $('#exit-below-div').bind('keydown', function()
 	}
 });
 
-$('#enter-button').click(function()
-{
-	$('body').attr('role', 'application');
-	$('#toggle-iframe').focus();
-	$('#app-entrance').focus();
-	
-});
+$('#enter-button')
+	.click(function()
+	{
+		$('body').attr('role', 'application');
+		$('#toggle-iframe').focus();
+		$('#app-entrance').focus();
+		
+	})
+	.bind('keyup', function(event)
+	{
+		if(event.keyCode == 13)
+		{
+			$('body').attr('role', 'application');
+			$('#toggle-iframe').focus();
+			$('#app-entrance').focus();
+		}
+		
+		
+	});
+
+//$('#enter-button').bind('click', function()
+//	{
+//		toggleMode(this);
+//	});
 
 $('#enter-below-button').click(function()
 {
@@ -140,7 +157,7 @@ $('#enter-below-button').click(function()
 });
 
 
-
+// deactivate app mode upon going above the app region, re-engaging reader mode 
 $('#app-entrance').bind('keydown', 'up', function()
 {
 	$('body').removeAttr('role');
@@ -148,6 +165,7 @@ $('#app-entrance').bind('keydown', 'up', function()
 	$('#exit-div').focus();
 });
 
+// deactivate add mode upon going below the app region, re-engaging reader mode
 $('#app-button-4').bind('keydown', 'down', function()
 {
 	$('body').removeAttr('role');
