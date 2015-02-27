@@ -88,6 +88,8 @@ function bindFocusCatchDirections()
 		toggleMode(this);
 	});
 	
+	
+	
 }
 
 
