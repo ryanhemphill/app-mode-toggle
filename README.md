@@ -1,7 +1,9 @@
 # app-mode-toggle
 a11y experiments: How to toggle app mode automatically
 
-Explanation: (sorry, it's long but you'll see that it's necessary)
+#Explanation: 
+
+(sorry, it's long but you'll see that it's necessary)
 
 This app uses a combination of HTML and JavaScript strategies to toggle "app-mode" in the JAWS screenreader, which reads content to a blind/visually impaired user. In its native state, JAWS uses almost the entire keyboard to help blind users navigate and read content, but the key events are not passed to the browser in most cases. 
 
