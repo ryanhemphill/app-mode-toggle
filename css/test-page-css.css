@@ -37,7 +37,7 @@ body[role="application"] {
 	border:gray 2px solid; 
 	min-width:50px;
 	min-height:15px;
-	width:75px;
+	
 	padding:4px;
 	z-index:1000;
 	margin:5px;
@@ -199,4 +199,13 @@ iframe.focus {
 
 .true {
 	border: green 3px solid;	
+}
+
+div {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;	
+}
+
+body[role="application"] #application-container {
+  border: 2px red solid;	
 }

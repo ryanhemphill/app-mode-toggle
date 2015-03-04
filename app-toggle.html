@@ -3,6 +3,8 @@
 <head>
 
 <link href="css/test-page-css.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="fm/jquery.js"></script>
 <script type="text/javascript" src="fm/jquery.hotkeys.js"></script>
@@ -14,8 +16,11 @@
 </head>
 
 <body>
+<div class="container">
+<h1>App-mode Toggle Experiment</h1><br>
+</div>
+<div id="explanation-container" class="container well">
 
-<h1>App-mode Toggle Experiment</h1>
 <p>This design is supposed to push/toggle app-mode for JAWS, a feature that has come about with the advent of ARIA.Without app-mode, almost all key events are not passed to the browser except during interaction with text field.  In app-mode, the user's keyboard comes under the control of the JavaScript. </p>
 <p>In this experiment, a method for engaging app-mode via JavaScript has been discovered. It should be noted that at the time of its creation, there was no other known toggle program. Please share thoughts on this, if you have found other means.</p>
 <p>The experiment considers the different ways that app-mode can be initiated. Methods include clicking on a button, but also &quot;capturing&quot; focus as the JAWS screenreader enters a textfield. There are several versions of JAWS that will respond to the app-mode toggle, including an earlier version (10) which didn't technically have an &quot;app-mode&quot;, although it required a slightly different approach. </p>
@@ -24,18 +29,18 @@
 <p>1. Documentation regarding the &quot;Exit fix&quot; will be provided later. See HTML and JS files for internal notes.<br>
   2. &quot;Flag&quot; divs exist to show that JAWS is NOT in app-mode, and is acting in reader-mode. While in app-mode, the flags aren't &quot;accessible&quot;.
 </p>
-<div id="ie8-solution" tabindex="0" role="button" class="true button">IE 8 Solution</div>
-<div id="jaws10-fix" tabindex="0" role="button" class="true button"> JAWS 10 Toggle version</div>
+<div id="ie8-solution" tabindex="0" role="button" class="true button btn btn-default">IE 8 Solution</div>
+<div id="jaws10-fix" tabindex="0" role="button" class="true button btn btn-default"> JAWS 10 Toggle version</div>
 
+</div>
 
-
-<div></div>
+<div id="test-container" class="container">
 
 <div id="exit-fix" tabindex="0">Exit Fix</div> <!-- NOTE: There are cases where the JAWS reader will fail to leave APP MODE, requiring one more step.  By adding a key event (any key will do) to the Exit DIV that can transfer it to the Exit Fix, this problem is effectively eliminated.  This is very necessary to protect against APP MODE failures! NOTE #2: This is also what makes the JAWS 10 system able to perform the same behaviors as 11, 12.  WIthout it, the pseudo app mode will not work. -->
 
 <div id="exit-div" tabindex="0" class="exit-fix targetid-exit-fix" role="button">Exit DIV</div>
 
-<div id="enter-button" tabindex="0" class="earthtone button appmode-act">Enter App (toggles app mode &quot;on&quot;) </div>
+<div id="enter-button" tabindex="0" class="btn btn-success button appmode-act">Enter App (toggles app mode &quot;on&quot;) </div>
 
 <div id="continue-warning">Continuing beyond this point will automatically move you into the application.</div>
 
@@ -45,17 +50,17 @@
 
 <!-- <div id="end-of-app-warning">Continuing beyond this point will cause the reader to exit ABOVE the Application.</div> -->
 
-<div>
+<div id="application-container" class="container well">
   <div tabindex="-1">Flag 1</div>
-  <div id="app-entrance" tabindex="0" class="light" ariaparent="app-1" role="button">Application</div>
+  <div id="app-entrance" tabindex="0" class="light btn btn-info" ariaparent="app-1" role="button">Application</div>
   <div tabindex="-1">Flag 2</div>
-  <div id="app-button-1" tabindex="0" class="mellowyellow" ariaparent="app-1" role="button">App BUTTON - 1</div>
+  <div id="app-button-1" tabindex="0" class="mellowyellow btn btn-primary" ariaparent="app-1" role="button">App BUTTON - 1</div>
   <div tabindex="-1">Flag 3</div>  
-  <div id="app-button-2" tabindex="0" class="oceanblue" ariaparent="app-1" role="button">App BUTTON - 2</div>
+  <div id="app-button-2" tabindex="0" class="oceanblue btn btn-primary" ariaparent="app-1" role="button">App BUTTON - 2</div>
   <div tabindex="-1">Flag 4</div>  
-  <div id="app-button-3" tabindex="0" class="brickred" ariaparent="app-1" role="button">App BUTTON - 3</div>
+  <div id="app-button-3" tabindex="0" class="brickred btn btn-primary" ariaparent="app-1" role="button">App BUTTON - 3</div>
   <div tabindex="-1">Flag 5</div>  
-  <div id="app-button-4" tabindex="0" class="forestgreen" ariaparent="app-1" role="button">App BUTTON - 4</div>
+  <div id="app-button-4" tabindex="0" class="forestgreen btn btn-primary" ariaparent="app-1" role="button">App BUTTON - 4</div>
   <div tabindex="-1">Flag 6</div>
 </div>
 
@@ -67,7 +72,7 @@
 
 <div id="continue-below-warning">Continuing UP beyond this point will automatically move you up into the application.</div>
 
-<div id="enter-below-button" tabindex="0" class="earthtone button">Enter Below BUTTON</div>
+<div id="enter-below-button" tabindex="0" class="earthtone button btn btn-success">Enter Below BUTTON</div>
 
 <div id="exit-below-div" tabindex="0" class="exit-fix targetid-exit-below-fix" role="button">Exit Below DIV</div>
 
@@ -79,7 +84,7 @@
 <!--<iframe id="toggle-iframe" tabindex="0" width="25" height="25"></iframe>-->
 
 <h2>End Test</h2>
-
+</div>
 <script type="text/javascript" src="fm/app-template-behaviors.js"></script> 
 
 <script type="text/javascript">
