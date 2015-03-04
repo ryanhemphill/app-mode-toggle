@@ -24,9 +24,11 @@
 <p>This design is supposed to push/toggle app-mode for JAWS, a feature that has come about with the advent of ARIA.Without app-mode, almost all key events are not passed to the browser except during interaction with text field.  In app-mode, the user's keyboard comes under the control of the JavaScript. </p>
 <p>In this experiment, a method for engaging app-mode via JavaScript has been discovered. It should be noted that at the time of its creation, there was no other known toggle program. Please share thoughts on this, if you have found other means.</p>
 <p>The experiment considers the different ways that app-mode can be initiated. Methods include clicking on a button, but also &quot;capturing&quot; focus as the JAWS screenreader enters a textfield. There are several versions of JAWS that will respond to the app-mode toggle, including an earlier version (10) which didn't technically have an &quot;app-mode&quot;, although it required a slightly different approach. </p>
-<p>When app-mode is supposed to be on, the background will turn GREEN. When it's not, the WHITE default will return.</p>
-<p>Notes: </p>
-<p>1. Documentation regarding the &quot;Exit fix&quot; will be provided later. See HTML and JS files for internal notes.<br>
+<p>NOTE: When app-mode is supposed to be on, the border of the application area will turn RED while the body turns gray. When it's not, the WHITE default will return.</p>
+<p>NOTE: When the screenreader is working properly (in concert with the page), user should never read the FLAGS that exist inside the application area because they should only be able to access the focusable buttons.
+</p>
+<p>Other points: </p>
+<p>1. Documentation regarding the &quot;Exit fix&quot; and other nuances will be provided later. See HTML and JS files for internal notes. In the meantime, don't remove or replace any tags surrounding the test. Their positions, in many cases, makes a difference.<br>
   2. &quot;Flag&quot; divs exist to show that JAWS is NOT in app-mode, and is acting in reader-mode. While in app-mode, the flags aren't &quot;accessible&quot;.
 </p>
 <div id="ie8-solution" tabindex="0" role="button" class="true button btn btn-default">IE 8 Solution</div>
